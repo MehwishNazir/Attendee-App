@@ -1,0 +1,30 @@
+<!-- mark_attendance.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Mark Attendance for {{ subject.name }}</title>
+    <!-- Add your CSS, JavaScript, or other dependencies here -->
+</head>
+<body>
+    <h1>Mark Attendance for {{ subject.name }}</h1>
+
+    <!-- Display Attendance Form -->
+    <form method="post" action="{% url 'mark_attendance' subject_id=subject.id %}">
+        {% csrf_token %}
+
+
+
+        <!-- Render the form fields -->
+        {{ form.as_p }}
+        <button type="submit">Submit</button>
+    </form>
+
+    <!-- Other Views -->
+    <h2>Other Views</h2>
+    <ul>
+        <li><a href="{% url 'create_subject' %}">Create Subject</a></li>
+    </ul>
+</body>
+</html>

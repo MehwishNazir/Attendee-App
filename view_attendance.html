@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>View Attendance</title>
+    <!-- Add your CSS, JavaScript, or other dependencies here -->
+</head>
+<body>
+    <h1>Attendance for {{ subject.name }}</h1>
+
+    <!-- Form to Select Month -->
+    <form method="get" action="{% url 'view_attendance' subject_id=subject.id %}">
+        <label for="month">Select Month:</label>
+        <input type="month" id="month" name="month" value="{% now 'Y-m' %}">
+        <button type="submit">Show Attendance</button>
+    </form>
+
+    <!-- Display Attendance Records for Selected Month and Subject -->
+    <table>
+        <thead>
+            <tr>
+                <th>Date</th>
+                <th>Is Present?</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for record in attendance_records %}
+                {% if record.date|date:'Y-m' == request.GET.month %}
+                    <tr>
+                        <td>{{ record.date }}</td>
+                        <td>{{ record.is_present }}</td>
+                    </tr>
+                {% endif %}
+            {% empty %}
+                <tr>
+                    <td colspan="2">No attendance records found for the selected month.</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>

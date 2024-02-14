@@ -1,0 +1,20 @@
+<!-- create_subject.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Create Subject</title>
+    <!-- Add your CSS, JavaScript, or other dependencies here -->
+</head>
+<body>
+    <h1>Create Subject</h1>
+
+    <!-- Display Subject Form -->
+    <form method="post" action="{% url 'create_subject' %}">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Submit</button>
+    </form>
+</body>
+</html>

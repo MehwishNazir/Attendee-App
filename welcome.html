@@ -1,0 +1,24 @@
+<!-- welcome.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Welcome to Attendee App</title>
+    <!-- Add your CSS, JavaScript, or other dependencies here -->
+</head>
+<body>
+    <h1>Welcome to Attendee App</h1>
+    <p>This is the landing page for the Attendee App.</p>
+
+    <!-- Links to other pages -->
+    <ul>
+        <li><a href="{% url 'create_subject' %}">Create a Subject</a></li>
+        <li><a href="{% url 'mark_attendance' subject_id=1 %}">Mark Attendance</a></li>
+        <li><a href="{% url 'view_attendance' subject_id=1 %}">View Attendance</a></li>
+        <!-- Add more links as needed -->
+    </ul>
+
+    <!-- You can add more content, links, or instructions as needed -->
+</body>
+</html>
